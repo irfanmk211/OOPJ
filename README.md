@@ -1,31 +1,91 @@
-Overview
-The Word Game is a simple interactive word-guessing game where the player is given hints and needs to guess the correct word. The game awards points for correct guesses and saves the player's score to an output file when the game ends.
+Word Game
+This project is a Word Game built using Java. The game allows the player to guess words based on hints provided, and it tracks the player’s score. The game’s results are stored in an output file, and various game-related functionalities are handled programmatically.
+Features
+•	Start Game: Begin the game and guess words based on hints.
+•	Track Score: Accumulate points for each correct guess.
+•	Word List: The words and their corresponding hints are read from an input file (input1.txt).
+•	Output Results: After the game ends, the player’s score and details are saved in an output file (output.txt).
+•	Game Flow: Display each word's hint, accept player guesses, and calculate the final score.
+Software Requirements
+1. Java JDK
+•	The project requires Java JDK 11 or higher for compiling and running the Java code.
+•	You can download it from Oracle's official website or use an open-source version like OpenJDK.
+2. Integrated Development Environment (IDE)
+•	The project can be developed and executed using any Java-compatible IDE, such as IntelliJ IDEA, Eclipse, or Visual Studio Code.
+•	Recommended IDE: IntelliJ IDEA for its excellent Java support.
+•	Installation:
+o	IntelliJ IDEA: Download Link
+3. Git
+•	Git is used for version control to track changes and manage the project history.
+•	You can download Git from here.
+4. GitHub
+•	GitHub is used to host the project’s repository, enabling easy collaboration and version management.
+•	The project repository can be accessed at: GitHub Repo Link.
+Classes and Interfaces
+1. GameInterface (Interface)
+This interface defines the methods for starting and ending the game.
+Methods:
+•	void startGame(): Starts the game, displays the first word and its hint, and processes guesses.
+•	void endGame(): Ends the game, displays the player's score, and saves the result to an output file.
+________________________________________
+2. Player (Class)
+Represents a player and tracks their score during the game.
+Attributes:
+•	name (String): The name of the player.
+•	score (int): The total score accumulated by the player during the game.
+Methods:
+•	Player(String name): Constructor that initializes the player with a name.
+•	String getName(): Returns the player’s name.
+•	int getScore(): Returns the player’s current score.
+•	void updateScore(int points): Updates the player’s score by adding the specified points.
+________________________________________
+3. Word (Class)
+Represents a word in the game, including its hint and point value.
+Attributes:
+•	word (String): The word to be guessed.
+•	hint (String): The hint that helps the player guess the word.
+•	points (int): The points awarded for guessing the word correctly.
+Methods:
+•	Word(String word, String hint, int points): Constructor that initializes the word, hint, and points.
+•	String getWord(): Returns the word.
+•	String getHint(): Returns the hint.
+•	int getPoints(): Returns the points for guessing the word correctly.
+________________________________________
+4. FileHandler (Class)
+Handles file operations for reading input data and writing output results.
+Methods:
+•	List<Word> readInputFile(String filePath): Reads the input file and returns a list of Word objects.
+•	void writeOutputFile(String filePath, String content): Writes the final results to the output file.
+________________________________________
+5. WordGame (Class)
+Implements the logic for running the game, managing the player’s score, and displaying the results.
+Attributes:
+•	List<Word> wordList: List of words read from the input file.
+•	Player player: The player participating in the game.
+•	FileHandler fileHandler: The file handler that manages input and output files.
+Methods:
+•	WordGame(String playerName, String inputFilePath): Constructor that initializes the player and loads the words from the input file.
+•	void startGame(): Starts the game, handles word guesses, and tracks the player’s score.
+•	void endGame(): Ends the game and writes the player’s results to the output file.
+________________________________________
+6. TestClass (Class)
+Contains the main method that initializes and starts the game.
+Methods:
+•	main(String[] args): Main entry point of the program. Initializes the WordGame with a player’s name and an input file path, and starts the game.
+________________________________________
+Files
+1. Input File (input1.txt)
+The input file contains a list of words, hints, and point values, formatted as follows:
+Apple,Fruit,10
+Table,Furniture,15
+Python,Programming Language,20
+Laptop,Electronic Device,25
+Guitar,Musical Instrument,30
+2. Output File (output.txt)
+After the game, the output file contains the player’s score and game summary:
+Player: John
+Score: 100
+________________________________________
+This README.md file outlines the features, software requirements, and provides details about the classes and methods in the Word Game project. You can now modify or enhance it according to specific details or further project adjustments.
+Let me know if you need any additional help!
 
-Components
-WordGame: The main class that drives the game logic, handles user input, and processes the word list.
-Word: A class representing a word with a hint and associated points.
-Player: A class representing the player, tracking their name and score.
-FileHandler: A class responsible for reading and writing files (input and output).
-GameInterface: An interface that defines the essential methods (startGame and endGame) that must be implemented by the WordGame class.
-File Structure
-WordGame.java: Contains the game logic and flow.
-Word.java: Defines a word's properties (the word, the hint, and the points).
-Player.java: Stores player information, including name and score.
-FileHandler.java: Handles file reading and writing operations for input and output.
-GameInterface.java: Defines the methods required for any game to implement (like start and end).
-TestClass.java: A simple test class to run the game.
-input1.txt: A sample input file (not included in the code, must be created by the user).
-Game Flow
-Starting the Game: The player is prompted with a welcome message and is informed that they will guess words based on hints.
-
-Gameplay:
-
-The game reads a list of words (with hints and points) from a file.
-For each word, the game displays the hint and asks the player to guess the word.
-If the player guesses correctly, they earn points based on the word's point value. If incorrect, the correct word is shown.
-Ending the Game: Once all words have been guessed, the game ends, and the player's final score is displayed. The results are then saved in the output.txt file.
-
-Requirements
-Java 8 or higher
-A text editor or IDE (like Eclipse, IntelliJ IDEA, or Visual Studio Code) for running the code.
-A valid input1.txt file (see below).
