@@ -1,0 +1,5 @@
+Apple,Fruit,10
+Table,Furniture,15
+Python,Programming Language,20
+Laptop,Electronic Device,25
+Guitar,Musical Instrument,30
